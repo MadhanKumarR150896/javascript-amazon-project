@@ -1,3 +1,6 @@
+// Creating objects using function
+
+
 function Cart(localStorageKey) {
   const cart = {
     cartItems: undefined,
