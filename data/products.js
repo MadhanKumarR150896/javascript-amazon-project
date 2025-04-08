@@ -66,6 +66,56 @@ class Clothing extends Product {
   }
 }
 
+/*
+//built-in-class
+
+const date = new Date();
+console.log(date);
+console.log(date.toLocaleTimeString());
+*/
+
+/*
+console.log(this); // outside the class , 'this' can be used but it will be undefined wen inside the module 
+
+const object2 = {
+  a: 2,
+  b: this.a //at this point the object is not yet created , so 'this' will be undefined
+};
+
+*/
+
+/*
+function logThis() {
+  console.log(this);
+}
+
+// here we are not inside any object so the above 'this' will be undefined
+
+logThis();
+
+logThis.call('Hello')
+
+// .call() will call the same funcion but 'this' can be replaced with wat ever we want 
+
+//arrow functions will not alter the value of 'this' 
+
+const object3 = {
+  method: () => {
+    console.log(this);
+  }
+};
+
+object3.method(); --> undefined 
+
+//'this' outside the arrow function will be watever its value it is
+
+1. inside a method , 'this' points to outer object
+2. inside a normal function , this = undefined , but we can change it using the method .call('value')
+3. insdie arrow function , it doesnt change the value of 'this' and it points to the value of 'this' watever it is outside
+
+
+*/
+
 
 export const products = [
   {
