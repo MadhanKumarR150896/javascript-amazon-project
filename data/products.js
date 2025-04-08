@@ -38,8 +38,33 @@ class Product {
   getPrice() {
     return `$${formatCurrency(this.priceCents)}`;
   }
+
+  extraInfoHTML(){
+    return '';
+  }
 }
 
+//inheritance - lets us reuse code between classes 
+
+class Clothing extends Product {
+  sizeChartLink;
+
+  constructor(productDetails){
+    super(productDetails); //calls the constructor of the parent class to get the parent class proeprties
+    this.sizeChartLink = productDetails.sizeChartLink;
+  }
+
+  extraInfoHTML(){
+    return `
+      <a href="${this.sizeChartLink}" target="_blank">
+      Size Chart
+      </a>
+    `;
+
+    // in some cases if we want to extend a method from a parent class , we can do that using super
+    // EX : super.extraInfoHTML();
+  }
+}
 
 
 export const products = [
@@ -702,6 +727,10 @@ export const products = [
     ]
   }
 ].map((productDetails) => {
+  if(productDetails.type === 'clothing') {
+    return new Clothing(productDetails);
+  };
   return new Product(productDetails);
 });
 
+//polymorphism - we can use a method without knowing which class it is
