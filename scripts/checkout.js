@@ -6,8 +6,27 @@ import { loadCart } from '../data/cart.js';
 // import '../data/cart-class.js';
 // import '../data/backend-practise.js';
 
+
+async function loadPage() {
+ 
+  await loadProductsFetch();
+
+  await new Promise((resolve) => {
+    loadCart(() => {
+      resolve();
+    });
+  });
+
+  renderOrderSummary();
+  renderPaymentSummary();
+ 
+}
+
+loadPage();
+
+/*
 Promise.all([
- loadProductsFetch(),
+  loadProductsFetch(),
   new Promise((resolve) => {
     loadCart(() => {
       resolve();
@@ -15,32 +34,35 @@ Promise.all([
   })
 
 ]).then(() => {
-  
   renderOrderSummary();
   renderPaymentSummary();
 });
 
+*/
+
 /*
+
 new Promise((resolve) => {
   loadProducts(() => {
     resolve('Hello');
   });
-
 }).then((value) => {
   console.log(value);
-  return new Promise((resolve) => {
-    loadCart(() => {
-      resolve();
+    return new Promise ((resolve) => {
+      loadCart(() => {
+        resolve();
+        console.log('Help');
+      });
+      
     });
-  });
-
 }).then(() => {
+  console.log('Hi');
     renderOrderSummary();
     renderPaymentSummary();
 });
+
+
 */
-
-
 
 /*
 loadProducts(() => {
@@ -48,6 +70,5 @@ loadProducts(() => {
     renderOrderSummary();
     renderPaymentSummary();
   });
-  
-  });
+});
 */
