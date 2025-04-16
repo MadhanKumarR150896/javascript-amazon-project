@@ -122,7 +122,8 @@ object3.method(); --> undefined
 export let products = [];
 
 export function loadProductsFetch () {
-  const promise = fetch('https://supersimplebackend.dev/products').then((response) => {
+  const promise = fetch('https://supersimplebackend.dev/products')
+  .then((response) => {
     return response.json();
   }).then((productsData) => {
     products = productsData.map((productDetails) => {
@@ -132,10 +133,15 @@ export function loadProductsFetch () {
       return new Product(productDetails);
     });
     console.log('Load Products');
+  }).catch((error) => {
+    console.log('Unexpected error. Please try again')
+    console.log(error);
   });
 
   return promise;
 }
+
+
 /*
 loadProductsFetch().then(() => {
   console.log('Next Step');
@@ -158,6 +164,12 @@ export function loadProducts (fun) {
 
     
   });
+
+  xhr.addEventListener('error' , (error) => {
+    console.log('Unexpected error. Please try again');
+    console.log(error);
+  });
+
   xhr.open('GET', 'https://supersimplebackend.dev/products');
   xhr.send();
 }
