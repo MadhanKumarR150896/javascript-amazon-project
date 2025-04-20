@@ -26,9 +26,7 @@ async function loadPage() {
 
   */
 
-
      //await loadCartFetch();
-
 
      await Promise.all([
       loadProductsFetch(),

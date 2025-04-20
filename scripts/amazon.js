@@ -9,6 +9,8 @@ cartModule.addToCart('id');
 */
 
 import {products,loadProducts} from '../data/products.js';
+import { renderOrderSummary } from './checkout/ordersummary.js';
+import { renderPaymentSummary } from './checkout/paymentSummary.js';
 import {formatCurrency} from './utils/money.js';
 
 
@@ -99,7 +101,7 @@ document.querySelectorAll('.js-add-to-cart')
 
        addToCart(productId);
        updateCartQuantity();
-
+       
        
         
     } );
