@@ -34,3 +34,16 @@ export function getOrderProduct(orderId,productId) {
 
   return matchingOrderProduct;
 }
+
+export function getOrder(orderId) {
+ 
+  let matchingOrder;
+
+  orders.forEach((order)=> {
+    if(order.id === orderId) {
+      matchingOrder = order;
+    }
+  });
+
+    return matchingOrder;
+}
