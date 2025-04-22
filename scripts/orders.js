@@ -111,6 +111,14 @@ document.querySelectorAll('.js-buy-again')
   .forEach((button) => {
     button.addEventListener('click', () => {
       addToCart(button.dataset.productId);
+
+      button.innerHTML = 'Added';
+      setTimeout(() => {
+        button.innerHTML = `
+          <img class="buy-again-icon" src="images/icons/buy-again.png">
+          <span class="buy-again-message">Buy it again</span>
+        `;
+      },2000)
       
     });
   });
