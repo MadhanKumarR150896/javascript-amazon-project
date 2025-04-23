@@ -93,4 +93,9 @@ export async function loadCartFetch () {
   return text;
 }
 
+export function resetCart () {
+  cart = [];
+  saveToStorage();
+}
+
 
